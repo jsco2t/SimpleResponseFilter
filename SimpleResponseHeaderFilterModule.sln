@@ -1,0 +1,26 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25420.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SimpleResponseHeaderFilterModule", "SimpleResponseHeaderFilterModule.csproj", "{F812A472-6F8E-406B-9289-242902B3718F}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "SimpleResponseHeaderFilterModuleInstaller", "ModuleInstaller\SimpleResponseHeaderFilterModuleInstaller.vdproj", "{0E9DD800-67ED-4249-AF67-74CDA8FF8D28}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{F812A472-6F8E-406B-9289-242902B3718F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F812A472-6F8E-406B-9289-242902B3718F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F812A472-6F8E-406B-9289-242902B3718F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F812A472-6F8E-406B-9289-242902B3718F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0E9DD800-67ED-4249-AF67-74CDA8FF8D28}.Debug|Any CPU.ActiveCfg = Debug
+		{0E9DD800-67ED-4249-AF67-74CDA8FF8D28}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
