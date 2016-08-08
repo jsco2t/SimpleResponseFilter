@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Configuration;
 
-namespace ResponseHeadersFilterModule
+namespace SimpleResponseHeaderFilterModule
 {
     class FilterConfiguration
     {

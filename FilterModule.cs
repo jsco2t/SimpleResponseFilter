@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Web;
 
-namespace ResponseHeadersFilterModule
+namespace SimpleResponseHeaderFilterModule
 {
     public class FilterModule : IHttpModule
     {
