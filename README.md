@@ -1,5 +1,5 @@
 # SimpleResponseFilter
-SimpleResponseFilter is a managed IIS module used for performing simple http response filtering. 
+SimpleResponseFilter is a managed IIS module used for performing simple http header response filtering. 
 
 ## Warnings and Disclaimers
 This code is published as an example/weekend learning project. 
