@@ -34,3 +34,15 @@ Steps for setting up the project for building:
 5. Rebuild the project.
 6. Rebuilt the installer project: `SimpleResponseFilterInstaller`
 
+## Configuring IIS (7.5 and up) to use the filter:
+
+The filter can be manually loaded into a specific web site by adjusting that sites web.config file. 
+Add something similar to the example below under the `configuration` node. Note that `system.web` and `modules` 
+may already exist in your web.config file.
+```
+<system.webServer>
+  <modules>
+    <add name="SimpleResponseFilterModule" type="SimpleResponseFilter.FilterModule, SimpleResponseFilterModule, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1234matchesyourassembly56789" />
+  </modules>
+</system.webServer>
+```
