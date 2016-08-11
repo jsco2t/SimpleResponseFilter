@@ -99,7 +99,7 @@ To Remove:
 
 - IIS Configurations are inherited. Adding `unsupportedHeaders` globally 
 and then to a specific web site will cause configuration errors. `unsupportedHeaders` 
-should be added globally, or only to those sites you have added the `SimpleResponseFilter` to.
+should be added globally, or only to those sites that `SimpleResponseFilter` has been added to.
 
 - Depending on how an IIS instance is configured the header field `X-Powered-By` may be added back
 by IIS *after* filtering has happened. This header can be removed by adjusting the "HTTP Response 
