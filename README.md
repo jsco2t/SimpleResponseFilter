@@ -4,14 +4,16 @@ SimpleResponseFilter is a managed IIS module used for performing simple http hea
 ## Warnings and Disclaimers
 This code is published as an example/weekend learning project. 
 
-As noted in the license file:
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+As noted in the license file this software *and* this help documentation is
+provided with the following disclaimer:
+
+*THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
 IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
 FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
 AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+SOFTWARE.*
 
 If you choose to use this module - you do so at your own risk :)
 
@@ -35,6 +37,20 @@ Steps for setting up the project for building:
 6. Rebuilt the installer project: `SimpleResponseFilterInstaller`
 
 ## Configuring IIS (7.5 and up) to use the filter:
+
+#### Step 1: Run the installer - this will add the module to the GAC on the machine.
+
+#### Step 2: Install the module into IIS. 
+
+The simple option for this is just to add the module to IIS directly. Alternatively (discussed below) 
+you can add the module to individual websites/webapplications using a `web.config` file.
+
+To add the module globally for all sites in IIS - run something similar to the following. 
+You will need to replace the `publickeytoken` with a value that matches your assembly:
+
+```
+.\appcmd.exe add module /name:"SimpleResponseFilterModule" /type:"SimpleResponseFilter.FilterModule, SimpleResponseFilterModule, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1234matchesyourassembly56789"
+```
 
 The filter can be manually loaded into a specific web site by adjusting that sites web.config file. 
 Add something similar to the example below under the `configuration` node. Note that `system.web` and `modules` 
