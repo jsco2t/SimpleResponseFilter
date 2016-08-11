@@ -21,15 +21,9 @@ namespace SimpleResponseFilter
                 try
                 {
                     FilterConfiguration config = new FilterConfiguration();
-                    
-                    if (!string.IsNullOrWhiteSpace(HostingEnvironment.SiteName))
-                    {
-                        unsupportedHeaders = config.GetUnsupportedHeadersOrDefault(HostingEnvironment.SiteName);
-                    }
-                    else
-                    {
-                        unsupportedHeaders = config.GetUnsupportedHeadersOrDefault();
-                    }
+                    string siteName = !string.IsNullOrWhiteSpace(HostingEnvironment.SiteName) ? HostingEnvironment.SiteName : string.Empty;
+
+                    unsupportedHeaders = config.GetUnsupportedHeadersOrDefault(siteName);
                 }
                 catch
                 { } // do nothing - todo add logging

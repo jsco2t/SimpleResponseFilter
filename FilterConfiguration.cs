@@ -41,7 +41,7 @@ namespace SimpleResponseFilter
 
         public List<string> GetUnsupportedHeadersOrDefault(string siteName = "", string configKey = "unsupportedHeaders")
         {
-            // case we have a site name to search within:
+            // case: we have a site name to search within:
             if (!string.IsNullOrWhiteSpace(siteName))
             {
                 var results = GetUnsupportedHeaders(siteName, configKey); 
@@ -52,7 +52,7 @@ namespace SimpleResponseFilter
                 }
             }
             
-            // fall-back case we have no site name, or nothing was found under sitename - search globally
+            // fall-back/retry case: we have no site name, or nothing was found under sitename - search globally
             {
                 var results = GetUnsupportedHeaders(string.Empty, configKey);
 
