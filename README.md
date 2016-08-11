@@ -42,19 +42,22 @@ Steps for setting up the project for building:
 
 #### Step 2: Install the module into IIS. 
 
-The simple option for this is just to add the module to IIS directly. Alternatively (discussed below) 
-you can add the module to individual websites/webapplications using a `web.config` file.
+The simple option for this is just to add SimpleResponseFilter to IIS directly. Alternatively (discussed below) 
+SimpleResponseFilter can be add to individual websites/webapplications using a `web.config` file.
 
 To add the module globally for all sites in IIS - run something similar to the following. 
-You will need to replace the `publickeytoken` with a value that matches your assembly:
+The `publickeytoken` will need to have a value which matches the strong-named assembly 
+which was installed:
 
 ```
 .\appcmd.exe add module /name:"SimpleResponseFilterModule" /type:"SimpleResponseFilter.FilterModule, SimpleResponseFilterModule, Version=1.0.0.0, Culture=neutral, PublicKeyToken=1234matchesyourassembly56789"
 ```
 
-The filter can be manually loaded into a specific web site by adjusting that sites web.config file. 
-Add something similar to the example below under the `configuration` node. Note that `system.web` and `modules` 
-may already exist in your web.config file.
+Alternatively the filter can be manually loaded into a specific web site by adjusting that sites web.config file.
+To do this, add something similar to the example below under the `configuration` node. Note that `system.web` and `modules` 
+may already exist in a web.config file. As noted above the `PublicKeyToken` should have a value which matches the
+assembly that was installed into the GAC:
+
 ```
 <system.webServer>
   <modules>
@@ -62,3 +65,36 @@ may already exist in your web.config file.
   </modules>
 </system.webServer>
 ```
+
+### Step 3: Adjust which headers to filter.
+
+SimpleResponseFilter will look at the `appSettings` configuration key `unsupportedHeaders` to 
+determine which headers to remove. If none are specified then `SimpleHeaderFilter` will default
+to filtering the following set:
+
+`unsuppotedHeaders` can either be added using the IIS Management UI, or can be added 
+using `appcmd.exe`. The following shows how to add/remove `unsupportedHeaders` using
+`appcmd.exe` Please note that the *value* for `unsupportedHeaders` MUST be a comma seperated
+list with no spaces.
+
+To add/remove `unsupportedHeaders` to all websites running in IIS:
+```
+To Add:
+.\appcmd.exe set config /section:appSettings MACHINE/WEBROOT /+"[key='unsupportedHeaders', value='Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version']"
+
+To Remove:
+.\appcmd.exe set config /section:appSettings MACHINE/WEBROOT /-"[key='unsupportedHeaders', value='Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version']"
+```
+
+To add/remove `unsupportedHeaders` to a specific website:
+```
+To Add:
+.\appcmd.exe set config /section:appSettings "Default Web Site" /+"[key='unsupportedHeaders', value='Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version']"
+
+To Remove:
+.\appcmd.exe set config /section:appSettings "Default Web Site" /-"[key='unsupportedHeaders', value='Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version']"
+```
+
+*PLEASE NOTE*: IIS Configurations are inherited. Adding `unsupportedHeaders` globally 
+and then to a specific web site will cause configuration errors. `unsupportedHeaders` 
+should be added globally, or only to those sites you have added the `SimpleResponseFilter` to.
