@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("SimpleResponseHeaderFilterModule")]
+[assembly: AssemblyTitle("SimpleResponseFilterModule")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("SimpleResponseHeaderFilterModule")]
+[assembly: AssemblyProduct("SimpleResponseFilter")]
 [assembly: AssemblyCopyright("Copyright Jason Scott © 2016")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]

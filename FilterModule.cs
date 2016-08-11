@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Web;
+using System.Web.Hosting;
 
 namespace SimpleResponseFilter
 {
@@ -17,8 +18,21 @@ namespace SimpleResponseFilter
             
             if (unsupportedHeaders == null)
             {
-                FilterConfiguration config = new FilterConfiguration();
-                unsupportedHeaders = config.GetUnsupportedHeaders();
+                try
+                {
+                    FilterConfiguration config = new FilterConfiguration();
+                    
+                    if (!string.IsNullOrWhiteSpace(HostingEnvironment.SiteName))
+                    {
+                        unsupportedHeaders = config.GetUnsupportedHeadersOrDefault(HostingEnvironment.SiteName);
+                    }
+                    else
+                    {
+                        unsupportedHeaders = config.GetUnsupportedHeadersOrDefault();
+                    }
+                }
+                catch
+                { } // do nothing - todo add logging
             }
 
             if (unsupportedHeaders != null && unsupportedHeaders.Count != 0)

@@ -154,7 +154,7 @@
         "Product"
         {
         "Name" = "8:Microsoft Visual Studio"
-        "ProductName" = "8:SimpleResponseFilterInstaller"
+        "ProductName" = "8:Simple Response Filter Module"
         "ProductCode" = "8:{486CA305-37B0-4B16-8D2B-1CD1BDE22BE3}"
         "PackageCode" = "8:{79B7A02A-550E-4247-A92A-4818B07A05B2}"
         "UpgradeCode" = "8:{F5140EFF-4749-4DBA-8E37-3E15F7E182E0}"
@@ -167,7 +167,7 @@
         "Manufacturer" = "8:Jason Scott"
         "ARPHELPTELEPHONE" = "8:"
         "ARPHELPLINK" = "8:"
-        "Title" = "8:SimpleResponseFilterInstaller"
+        "Title" = "8:Simple Response Filter Module"
         "Subject" = "8:"
         "ARPCONTACT" = "8:"
         "Keywords" = "8:"
@@ -677,7 +677,7 @@
         {
             "{5259A561-127C-4D43-A0A1-72F10C7B3BF8}:_E87DEFF53B7E4B52BE92B85FD0E6CD47"
             {
-            "SourcePath" = "8:..\\..\\obj\\Debug\\SimpleResponseHeaderFilterModule.dll"
+            "SourcePath" = "8:..\\..\\obj\\Debug\\SimpleResponseFilterModule.dll"
             "TargetName" = "8:"
             "Tag" = "8:"
             "Folder" = "8:_A09D090ECA934000A467B319FE036ACC"
