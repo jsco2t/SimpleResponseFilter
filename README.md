@@ -70,7 +70,7 @@ assembly that was installed into the GAC:
 
 SimpleResponseFilter will look at the `appSettings` configuration key `unsupportedHeaders` to 
 determine which headers to remove. If none are specified then `SimpleHeaderFilter` will default
-to filtering the following set:
+to filtering the following set: Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version
 
 `unsuppotedHeaders` can either be added using the IIS Management UI, or can be added 
 using `appcmd.exe`. The following shows how to add/remove `unsupportedHeaders` using
@@ -95,6 +95,12 @@ To Remove:
 .\appcmd.exe set config /section:appSettings "Default Web Site" /-"[key='unsupportedHeaders', value='Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version']"
 ```
 
-*PLEASE NOTE*: IIS Configurations are inherited. Adding `unsupportedHeaders` globally 
+### NOTES: 
+
+- IIS Configurations are inherited. Adding `unsupportedHeaders` globally 
 and then to a specific web site will cause configuration errors. `unsupportedHeaders` 
 should be added globally, or only to those sites you have added the `SimpleResponseFilter` to.
+
+- Depending on how an IIS instance is configured the header field `X-Powered-By` may be added back
+by IIS *after* filtering has happened. This header can be removed by adjusting the "HTTP Response 
+Headers" setting in IIS.
