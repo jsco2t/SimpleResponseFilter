@@ -21,7 +21,6 @@ namespace SimpleResponseFilter
                 unsupportedHeaders = config.GetUnsupportedHeaders();
             }
 
-
             if (unsupportedHeaders != null && unsupportedHeaders.Count != 0)
             {
                 // only wire up the event handler - if we have filtering to do:
@@ -36,10 +35,10 @@ namespace SimpleResponseFilter
 
         private void OnPreSendRequestHeaders(object sender, EventArgs e)
         {
-            var app = sender != null ? (HttpApplication)sender : null;
+            var app = sender != null ? sender as HttpApplication : null;
             var response = app != null ? app.Response : null;
 
-            if (response != null)
+            if (response != null && unsupportedHeaders != null)
             {
                 unsupportedHeaders.ForEach(header => response.Headers.Remove(header));
             }
@@ -51,4 +50,3 @@ namespace SimpleResponseFilter
 // http://www.iis.net/learn/get-started/introduction-to-iis/iis-modules-overview
 // http://www.iis.net/learn/develop/runtime-extensibility/developing-iis-modules-and-handlers-with-the-net-framework
 // https://msdn.microsoft.com/en-us/library/dkkx7f79(v=vs.110).aspx <-- gacutil
-// http://forums.iis.net/t/1151098.aspx?How+to+read+IIS+7+metabase+from+HttpModule+C+
