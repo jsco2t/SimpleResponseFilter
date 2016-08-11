@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using System.Configuration;
 using System.Web.Configuration;
 
-namespace SimpleResponseHeaderFilterModule
+namespace SimpleResponseFilter
 {
     class FilterConfiguration
     {
         public List<string> GetUnsupportedHeaders(string configKey = "unsupportedHeaders")
         {
             var webConfig = WebConfigurationManager.OpenWebConfiguration("/appSettings");
-            
+
             if (webConfig != null)
             {
                 if (webConfig.AppSettings != null && webConfig.AppSettings.Settings != null)

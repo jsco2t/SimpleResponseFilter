@@ -7,8 +7,8 @@
     <ProjectGuid>{F812A472-6F8E-406B-9289-242902B3718F}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>SimpleResponseHeaderFilterModule</RootNamespace>
-    <AssemblyName>SimpleResponseHeaderFilterModule</AssemblyName>
+    <RootNamespace>SimpleResponseFilter</RootNamespace>
+    <AssemblyName>SimpleResponseFilterModule</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -34,7 +34,7 @@
     <SignAssembly>true</SignAssembly>
   </PropertyGroup>
   <PropertyGroup>
-    <AssemblyOriginatorKeyFile>SimpleResponseHeaderFilterModule.snk</AssemblyOriginatorKeyFile>
+    <AssemblyOriginatorKeyFile>SimpleResponseFilterModule.snk</AssemblyOriginatorKeyFile>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -52,7 +52,7 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="SimpleResponseHeaderFilterModule.snk" />
+    <None Include="SimpleResponseFilterModule.snk" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.

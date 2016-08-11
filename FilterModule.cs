@@ -2,12 +2,12 @@
 using System.Collections.Generic;
 using System.Web;
 
-namespace SimpleResponseHeaderFilterModule
+namespace SimpleResponseFilter
 {
     public class FilterModule : IHttpModule
     {
-        private static List<string> unsupportedHeaders = null; 
-         
+        private static List<string> unsupportedHeaders = null;
+
         public void Init(HttpApplication context)
         {
             if (context != null)
@@ -27,10 +27,10 @@ namespace SimpleResponseHeaderFilterModule
                 }
             }
         }
-        
+
         public void Dispose()
         {
-            
+
         }
 
         private void OnPreSendRequestHeaders(object sender, EventArgs e)

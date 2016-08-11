@@ -1,2 +1,2 @@
-# SimpleResponseHeaderFilterModule
-Simple managed HTTP response header filter module for IIS
+# SimpleResponseFilter
+SimpleResponseFilter is a managed IIS module use for performing simple response filtering. Published as an example!
