@@ -30,12 +30,17 @@ namespace SimpleResponseFilter
                                     return new List<string>() { kvp.Value };
                                 }
                             }
+                            else
+                            {
+                                // if key exists - but value is empty return no unsupported headers:
+                                return new List<string>();
+                            }
                         }
                     }
                 }
             }
 
-            return new List<string>();
+            return new List<string> { "Server", "X-AspNet-Version", "X-AspNetMvc-Version", "X-Powered-By" }; // default
         }
     }
 }

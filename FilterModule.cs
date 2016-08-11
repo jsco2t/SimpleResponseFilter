@@ -10,27 +10,28 @@ namespace SimpleResponseFilter
 
         public void Init(HttpApplication context)
         {
-            if (context != null)
+            if (context == null)
             {
-                context.PreSendRequestHeaders += OnPreSendRequestHeaders;
+                return; // nothing for us to do / unexpected condition
             }
-
+            
             if (unsupportedHeaders == null)
             {
                 FilterConfiguration config = new FilterConfiguration();
                 unsupportedHeaders = config.GetUnsupportedHeaders();
+            }
 
-                if (unsupportedHeaders == null || unsupportedHeaders.Count == 0)
-                {
-                    // default set
-                    unsupportedHeaders = new List<string> { "Server", "X-AspNet-Version", "X-AspNetMvc-Version", "X-Powered-By" };
-                }
+
+            if (unsupportedHeaders != null && unsupportedHeaders.Count != 0)
+            {
+                // only wire up the event handler - if we have filtering to do:
+                context.PreSendRequestHeaders += OnPreSendRequestHeaders;
             }
         }
 
         public void Dispose()
         {
-
+            // required by IHttpModule interface
         }
 
         private void OnPreSendRequestHeaders(object sender, EventArgs e)
