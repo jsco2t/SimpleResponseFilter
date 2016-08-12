@@ -54,7 +54,7 @@ which was installed:
 ```
 
 Alternatively the filter can be manually loaded into a specific web site by adjusting that sites web.config file.
-To do this, add something similar to the example below under the `configuration` node. Note that `system.web` and `modules` 
+To do this, add something similar to the example below under the `configuration` node. Note that `system.webServer` and `modules` 
 may already exist in a web.config file. As noted above the `PublicKeyToken` should have a value which matches the
 assembly that was installed into the GAC:
 
