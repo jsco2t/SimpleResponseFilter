@@ -25,7 +25,7 @@ for IIS to be able to load them. This requires:
 2. The filter module to be installed into the GAC using gacutil or an installer.
 
 The simple way of handling this is to have the project build an installer (which is included 
-in the solution for SimpleResponseFilter)
+in the solution for `SimpleResponseFilter`)
 
 Steps for setting up the project for building:
 
@@ -42,7 +42,7 @@ Steps for setting up the project for building:
 
 #### Step 2: Install the module into IIS. 
 
-The simple option for this is just to add SimpleResponseFilter to IIS directly. Alternatively (discussed below) 
+The simple option for this is just to add `SimpleResponseFilter` to IIS directly. Alternatively (discussed below) 
 SimpleResponseFilter can be add to individual websites/webapplications using a `web.config` file.
 
 To add the module globally for all sites in IIS - run something similar to the following. 
@@ -68,9 +68,9 @@ assembly that was installed into the GAC:
 
 ### Step 3: Adjust which headers to filter.
 
-SimpleResponseFilter will look at the `appSettings` configuration key `unsupportedHeaders` to 
-determine which headers to remove. If none are specified then `SimpleHeaderFilter` will default
-to filtering the following set: Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version
+`SimpleResponseFilter` will look at the `appSettings` configuration key `unsupportedHeaders` to 
+determine which headers to remove. If none are specified then SimpleResponseFilter will default
+to filtering the following set: `Server,X-AspNetMvc-Version,X-Powered-By,X-AspNet-Version`
 
 `unsuppotedHeaders` can either be added using the IIS Management UI, or can be added 
 using `appcmd.exe`. The following shows how to add/remove `unsupportedHeaders` using
